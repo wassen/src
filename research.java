@@ -304,7 +304,7 @@ public class research implements AIInterface {
 				if (realRemainingTime < 170 && newRound) {
 					
 					
-					try {
+					try { 
 						exportRoundNumber();
 						exportScore();
 					} catch (IOException e) {
