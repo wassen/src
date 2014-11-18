@@ -1,4 +1,4 @@
-import java.io.BufferedReader;
+//import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -305,7 +305,7 @@ public class research implements AIInterface {
 					
 					
 					try {
-						exportRoundNumber();
+//						exportRoundNumber();
 						exportScore();
 					} catch (IOException e) {
 						e.printStackTrace();
@@ -315,37 +315,38 @@ public class research implements AIInterface {
 		}
 	}
 
-	public void exportRoundNumber()throws IOException{
-		
-		String path = "data\\aiData\\research\\setting.ini";
-		StringBuffer buffer = new StringBuffer();
-		BufferedReader bufferReader = new BufferedReader(new FileReader(path));
-		String line;
-		
-//		File file = new File(path);
-//		if (!file.exists())
-//			file.createNewFile();これやるんならディレクトリも作りたいね
-
-		while ((line = bufferReader.readLine()) != null) {
-			String status = line.substring(line.indexOf("<"),
-					line.indexOf(">") + 1);
-
-			if (status.equals("<round>")) {
-				buffer.append(status + round + "\r\n");
-				// fileWriter.write(buffer.toString());
-			} else {
-				// fileWriter.write(line);
-				buffer.append(line + "\r\n");
-			}
-
-		}
-
-		FileWriter fileWriter = new FileWriter(path, false);
-		fileWriter.write(buffer.toString());
-
-		bufferReader.close();
-		fileWriter.close();
-	}
+//	public void exportRoundNumber()throws IOException{
+//		
+////		String path = "data\\aiData\\research\\setting.ini";
+//		String path = "data\\aiData\\research\\delay.txt";
+//		StringBuffer buffer = new StringBuffer();
+//		BufferedReader bufferReader = new BufferedReader(new FileReader(path));
+//		String line;
+//		
+////		File file = new File(path);
+////		if (!file.exists())
+////			file.createNewFile();これやるんならディレクトリも作りたいね
+//
+//		while ((line = bufferReader.readLine()) != null) {
+//			String status = line.substring(line.indexOf("<"),
+//					line.indexOf(">") + 1);
+//
+//			if (status.equals("[round]")) {
+//				buffer.append(status + round + "\r\n");
+//				// fileWriter.write(buffer.toString());
+//			} else {
+//				// fileWriter.write(line);
+//				buffer.append(line + "\r\n");
+//			}
+//
+//		}
+//
+//		FileWriter fileWriter = new FileWriter(path, false);
+//		fileWriter.write(buffer.toString());
+//
+//		bufferReader.close();
+//		fileWriter.close();
+//	}
 	
 	public void exportScore() throws IOException {
 		realp1 = frameData.P1.getHp();
@@ -355,7 +356,7 @@ public class research implements AIInterface {
 		System.out.println("P2の" + "スコアは"
 				+ Math.round(realp1 / (realp2 + realp1) * 1000));
 
-		String path = "score.csv";
+		String path = "data\\aiData\\research\\score.csv";
 
 		File file = new File(path);
 
